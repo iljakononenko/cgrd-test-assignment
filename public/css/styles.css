@@ -1,0 +1,149 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, serif;
+}
+
+.d-none {
+    display: none !important;
+}
+
+html {
+    min-height: 100vh;
+}
+
+body {
+    background: url("/img/waves.svg") no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h3 {
+    font-weight: bold;
+    color: #15396b;
+    margin: 20px 0;
+}
+
+.form-input {
+    display: block;
+    width: 100%;
+    height: 46px;
+    padding: 16px 20px;
+    margin-bottom: 16px;
+    border: 1px lightgray solid;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+textarea.form-input {
+    height: initial !important;
+}
+
+.form-submit-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+    cursor: pointer;
+    text-decoration: none;
+    background-color: #1f54a0;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 4px;
+    border: 1px #15396b solid;
+    margin-bottom: 16px;
+}
+
+.bg-light-green {
+    background-color: #f7fff0;
+}
+
+.info-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+}
+
+.info-box.error {
+    color: #d06b6b;
+    background-color: #fff0f0;
+    border: 1px #d06b6b solid;
+}
+
+.info-box.success {
+    color: #5aa013;
+    background-color: #f6fff0;
+    border: 1px solid #d3ffb4;
+}
+
+.news-list {
+    margin-bottom: 32px;
+}
+
+.news-title {
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+.news-item {
+    color: #15396b;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background: #fcfcfc;
+    border: 1px #d5d5d5 solid;
+    border-radius: 4px;
+    margin-bottom: 16px;
+}
+
+.news-details {
+    display: flex;
+    align-items: center;
+}
+
+.action-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.action-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.action-buttons a,
+a.cancel-edit-button {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.action-buttons img,
+.cancel-edit-button img {
+    width: 20px;
+}
+
+.action-buttons .edit-button {
+    margin-right: 16px;
+}
