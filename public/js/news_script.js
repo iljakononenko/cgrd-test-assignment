@@ -39,7 +39,7 @@ function removeHandler() {
 
 function showInfoBox(type, message) {
     let info_box = $('.info-box');
-    info_box.removeClass('d-none error info')
+    info_box.removeClass('d-none error success')
     if (type === ERROR) {
         info_box.addClass('error')
     } else if (type === SUCCESS) {
@@ -61,12 +61,12 @@ $(document).ready(function() {
         description = description.trim();
 
         if (title === "") {
-            showInfoBox(ERROR, "Please fill title field!");
+            showInfoBox(ERROR, "Please fill the title field!");
             return
         }
 
         if (description === "") {
-            showInfoBox(ERROR, "Please fill description field!");
+            showInfoBox(ERROR, "Please fill the description field!");
             return
         }
 

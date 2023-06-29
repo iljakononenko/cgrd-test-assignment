@@ -67,7 +67,7 @@ class Error
                 echo "<h1>An error occurred</h1>";
             }
             */
-            View::renderTemplate("$code.html");
+            View::render("$code.php");
         }
     }
 }

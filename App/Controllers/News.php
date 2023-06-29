@@ -39,7 +39,7 @@ class News extends \Core\Controller {
     public function indexAction() {
         $newsList = NewsModel::getAll();
 
-        View::renderTemplate('News/index.html', [
+        View::render('News/index.php', [
             'newsList' => $newsList
         ]);
     }
@@ -66,8 +66,8 @@ class News extends \Core\Controller {
      */
     public function editAction() {
         if ($_POST && isset($this->route_params['id'])) {
-            $title = $_POST['title'];
-            $description = $_POST['description'];
+            $title = htmlentities($_POST['title'], ENT_QUOTES, "UTF-8");
+            $description = htmlentities($_POST['description'], ENT_QUOTES, "UTF-8");
             NewsModel::editNews($this->route_params['id'], $title, $description);
             echo json_encode((object) ["status" => 200, "message" => "post edited"]);
         } else {
