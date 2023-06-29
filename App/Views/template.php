@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="/css/styles.css">
         <link rel="icon" href="/img/logo.ico" type="image/x-icon">
-        <title>cgrd - News</title>
+        <title>cgrd - Test Backend | Admin</title>
         <script src="/js/jquery-3.7.0.min.js"></script>
     </head>
     <body>
