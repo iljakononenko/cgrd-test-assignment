@@ -20,15 +20,21 @@ function editHandler() {
 
 function removeHandler() {
     let news_id = $(this).attr('data-news-id');
-    let news_item_element = `.news-item#${news_id} `
-    $(news_item_element).remove()
+    let news_item_element = `.news-item#${news_id} `;
 
     $.post('/news/remove/' + news_id, {}, function(result) {
         console.log("Result: ", result);
         showInfoBox(SUCCESS, "News was deleted!");
+        $(news_item_element).remove();
+
+        if ($('.news-list').children().length === 0 && !$('#news-title').hasClass('d-none')) {
+            $('#news-title').addClass('d-none');
+        }
     }).fail(function(error) {
         console.error('Error: ', error)
     })
+
+
 }
 
 function showInfoBox(type, message) {
@@ -50,7 +56,19 @@ $(document).ready(function() {
 
         let url = $('form#news-form')[0].action;
         let title = $('form#news-form input[name="title"]').val()
+        title = title.trim();
         let description = $('form#news-form textarea[name="description"]').val()
+        description = description.trim();
+
+        if (title === "") {
+            showInfoBox(ERROR, "Please fill title field!");
+            return
+        }
+
+        if (description === "") {
+            showInfoBox(ERROR, "Please fill description field!");
+            return
+        }
 
         let news_id = $(this).attr('data-news-id');
 
@@ -96,6 +114,9 @@ $(document).ready(function() {
                     $(`.news-item#${newNews.id} .action-buttons .edit-button`).on('click', editHandler)
                     $(`.news-item#${newNews.id} .action-buttons .remove-button`).on('click', removeHandler)
                     showInfoBox(SUCCESS, "News was successfully created!");
+                    if ($('.news-list').children().length !== 0) {
+                        $('#news-title').removeClass('d-none')
+                    }
                 }
             }
 

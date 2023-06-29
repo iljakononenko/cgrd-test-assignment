@@ -10,28 +10,29 @@
         </p>
     </div>
 
-    <h3>All news</h3>
+
+    <h3 id="news-title" class="{% if newsList|length == 0 %} d-none {% endif %}">All news</h3>
 
     <div class="news-list">
         {% for news in newsList %}
-            <div class="news-item" id="{{ news.id }}">
-                <div class="news-details">
-                    <span class="news-title">
-                        {{ news.title }}
-                    </span>
-                    <span class="news-description">
-                        {{ news.description }}
-                    </span>
-                </div>
-                <div class="action-buttons">
-                    <a class="edit-button" data-news-id="{{ news.id }}">
-                        <img src="/img/icons/pencil.svg" alt="">
-                    </a>
-                    <a class="remove-button" data-news-id="{{ news.id }}">
-                        <img src="/img/icons/close.svg" alt="">
-                    </a>
-                </div>
+        <div class="news-item" id="{{ news.id }}">
+            <div class="news-details">
+                                <span class="news-title">
+                                    {{ news.title }}
+                                </span>
+                <span class="news-description">
+                                    {{ news.description }}
+                                </span>
             </div>
+            <div class="action-buttons">
+                <a class="edit-button" data-news-id="{{ news.id }}">
+                    <img src="/img/icons/pencil.svg" alt="">
+                </a>
+                <a class="remove-button" data-news-id="{{ news.id }}">
+                    <img src="/img/icons/close.svg" alt="">
+                </a>
+            </div>
+        </div>
         {% endfor %}
     </div>
 
