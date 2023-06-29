@@ -34,14 +34,16 @@ class Authentification extends \Core\Controller {
     public function indexAction() {
         $parameters = [];
         if ($_POST) {
-            if ($_POST['username'] == "admin" && $_POST['password'] == "test") {
+            $username = htmlentities($_POST['username'], ENT_QUOTES, "UTF-8");
+            $password = htmlentities($_POST['password'], ENT_QUOTES, "UTF-8");
+            if ($username == "admin" && $password == "test") {
                 $_SESSION['userLogged'] = true;
                 header('Location: /news');
             } else {
                 $parameters['error'] = "Wrong Login Data!";
             }
         }
-        View::renderTemplate('Home/index.html', $parameters);
+        View::renderTemplate('Authentification/index.html', $parameters);
     }
 
     public function submitAction() {

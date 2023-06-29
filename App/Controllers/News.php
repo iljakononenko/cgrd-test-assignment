@@ -50,8 +50,8 @@ class News extends \Core\Controller {
      */
     public function addNewsAction() {
         if ($_POST) {
-            $title = $_POST['title'];
-            $description = $_POST['description'];
+            $title = htmlentities($_POST['title'], ENT_QUOTES, "UTF-8");
+            $description = htmlentities($_POST['description'], ENT_QUOTES, "UTF-8");
             $newNewsId = NewsModel::addNews($title, $description);
             $newNews = NewsModel::getOne($newNewsId);
             echo json_encode((object) ["status" => 200, "message" => "post added", "newNews" => $newNews]);
