@@ -30,6 +30,5 @@ $router->add('public/.*', ['controller' => 'static']);
 $router->add('{controller}', ['action' => 'index']);
 $router->add('{controller}/{action}');
 $router->add('{controller}/{action}/{id:\d+}');
-$router->add('admin/{controller}/{action}', ['namespace' => 'Admin']);
-    
+
 $router->dispatch($_SERVER['QUERY_STRING']);
